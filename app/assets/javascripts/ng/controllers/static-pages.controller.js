@@ -1,8 +1,8 @@
 var SP = SP || {}
 SP.app = angular.module('app',[]);
 
-SP.app.controller('QueueCtrl', ['$scope',
-  function($scope) {
+SP.app.controller('QueueCtrl', ['$scope', "$http",
+  function($scope, $http) {
 
     $scope.tweet = {}
 
@@ -30,7 +30,17 @@ SP.app.controller('QueueCtrl', ['$scope',
     }
 
     var submitTweet = function(){
-      console.log("tweet!")
+      $.ajax({ url: '/tweets.json',
+      type: 'POST',
+      beforeSend: $.rails.CSRFProtection,
+      headers: {
+        'X-CSRF-Token': '<%= form_authenticity_token.to_s %>'
+      },
+      data: $scope.tweet,
+      success: function(response) {
+        console.log("wooo")
+      }
+    });
     }
 
     //move this to a service

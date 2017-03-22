@@ -3,7 +3,9 @@ class TweetsController < ApplicationController
   end
 
   def create
-
+    respond_to do |format|
+      format.json { head :no_content }
+    end
   end
 
   def delete
