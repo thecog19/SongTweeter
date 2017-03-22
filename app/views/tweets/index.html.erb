@@ -1,2 +1,23 @@
 <%= render '/shared/nav' %>
-{{test}}
+<div class="row"> 
+  <div class="col-md-6">
+      <div class="panel" ng-class="colorizePanel()">
+        <div class="panel-heading">
+          <h4>Add a tweet</h4>
+          {{error}}
+        </div>
+        <div class="panel-body">
+          <textarea ng-model="tweet.value" class="form-control" rows="3"> </textarea>
+          <br>
+
+          <input type="time" ng-model="tweet.time">  <input type="date" ng-model="tweet.date">  
+          <br>
+          <button class="btn btn-primary btn-large" ng-click=addTweet()>Add Tweet</button> ({{tweet.value.length}})
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-6">
+  b
+  </div>
+</div>
