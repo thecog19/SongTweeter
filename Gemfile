@@ -19,6 +19,8 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.2'
 gem 'figaro', '~> 1.1'
 gem "twitter"
+gem 'delayed_job_active_record'
+
 
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'jquery-rails'
