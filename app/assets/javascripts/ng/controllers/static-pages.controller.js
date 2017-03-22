@@ -5,15 +5,18 @@ SP.app.controller('QueueCtrl', ['$scope', "$http",
   function($scope, $http) {
 
     $scope.tweet = {}
-
     $scope.tweet.value = ""
+
+    $scope.date = new Date().toDateString()
+    $scope.time = new Date().toLocaleTimeString();
+
+    $scope.sent = false
 
     $scope.addTweet = function(){
       if(validateTweet().valid){
         submitTweet()
       }
       else{
-        
         $scope.error = validateTweet().error
       }
     }
@@ -38,10 +41,24 @@ SP.app.controller('QueueCtrl', ['$scope', "$http",
       },
       data: $scope.tweet,
       success: function(response) {
-        console.log("wooo")
+        $scope.tweet = {}
+        $scope.tweet.value = ""
+        $scope.sent = true
       }
     });
     }
+
+    $scope.getQueue = function(){
+      $.ajax({ 
+        url: '/tweets.json',
+        type: 'get',
+        success: function(response){
+          console.log(response)
+        }
+      })
+    }
+    
+
 
     //move this to a service
     //add date validation too (can't be in the past)
@@ -53,6 +70,9 @@ SP.app.controller('QueueCtrl', ['$scope', "$http",
       }else if($scope.tweet.value.length > 140){
         return_object.valid = false
         return_object.error = "tweet is too long"
+      }else if(!$scope.tweet.hours){
+        return_object.valid = false
+        return_object.error = "You must select a time to publish!"
       }else{
         return_object.valid = true
       }

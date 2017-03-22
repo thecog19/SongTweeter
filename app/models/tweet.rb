@@ -16,9 +16,10 @@ class Tweet < ApplicationRecord
     end
   end
 
-  def self.send_tweet
+  def self.send_tweet(value, id)
     client = initialize_client unless client
-    client.update("Test 2 the APIIng")
+    client.update(value)
+    self.find(id).update(sent: true)
   end
 end
 

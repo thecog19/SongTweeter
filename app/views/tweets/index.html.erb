@@ -1,5 +1,9 @@
 <%= render '/shared/nav' %>
 <div class="row"> 
+  <div class="alert alert-success" ng-show=sent>
+    <strong>Tweet Added!</strong> Check your queue! 
+  </div>
+
   <div class="col-md-6">
       <div class="panel" ng-class="colorizePanel()">
         <div class="panel-heading">
@@ -9,8 +13,8 @@
         <div class="panel-body">
           <textarea ng-model="tweet.value" class="form-control" rows="3"> </textarea>
           <br>
-
-          <input type="time" ng-model="tweet.time">  <input type="date" ng-model="tweet.date">  
+          In how many hours:
+          <input type="number" ng-model="tweet.hours" min="1">
           <br>
           <button class="btn btn-primary btn-large" ng-click=addTweet()>Add Tweet</button> ({{tweet.value.length}})
       </div>
@@ -18,6 +22,6 @@
   </div>
 
   <div class="col-md-6">
-  b
+  {{getQueue()}}
   </div>
 </div>
