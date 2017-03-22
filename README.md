@@ -1,5 +1,6 @@
-# SongTexter
-A program to text myself spotify links
+# SongTweeter
+
+The backing behind a twitter bot that tweets out music links in a predetermined way. 
 
 This is built on Rails, a Ruby based MVC framework, which was selected because of its robustnes and modularity, as well as the fact that it has a strong ORM that makes working with PostgresSQL a breeze, as well as allowing a no-hassle roll out of a time tested authorization system, so that expanding the app beyond a simple personal app become much easier. 
 
