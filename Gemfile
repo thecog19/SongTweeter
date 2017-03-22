@@ -17,7 +17,6 @@ gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
-gem 'devise'
 gem 'figaro', '~> 1.1'
 gem 'httparty', '~> 0.14'
 gem 'angularjs-rails', '~> 1.6'

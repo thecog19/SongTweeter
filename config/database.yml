@@ -6,14 +6,14 @@ default: &default
 
 development:
   <<: *default
-  database: Song_Texter_development
+  database: Song_Twitter_development
 
 test:
   <<: *default
-  database: Song_Texter_test
+  database: Song_Twitter_test
 
 production:
   <<: *default
-  database: Song_Texter_production
-  username: Song_Texter
-  password: <%= ENV['SONG_TEXTER_DATABASE_PASSWORD'] %>
+  database: Song_Twitter_production
+  username: Song_Twitter
+  password: <%= ENV['SONG_TWITTER_DATABASE_PASSWORD'] %>
