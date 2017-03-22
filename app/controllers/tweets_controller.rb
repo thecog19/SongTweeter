@@ -17,7 +17,12 @@ class TweetsController < ApplicationController
   end
   
 
-  def delete
-
+  def destroy
+    @tweet = Tweet.find(params["id"])
+    respond_to do |format|
+      if @tweet.destroy
+        format.json {  render json: @tweet }
+      end
+    end
   end
 end

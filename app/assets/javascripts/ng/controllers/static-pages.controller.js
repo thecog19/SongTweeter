@@ -11,6 +11,21 @@ SP.app.controller('QueueCtrl', ['$scope', "$http",
     $scope.time = new Date().toLocaleTimeString();
 
     $scope.sent = false
+    
+    var getQueue = function(){
+      $.ajax({ 
+        url: '/tweets.json',
+        type: 'get',
+        success: function(response){
+          $scope.queue = response
+        }
+      })
+    }
+
+    angular.element(document).ready(function () {
+      getQueue()
+    });
+
 
     $scope.addTweet = function(){
       if(validateTweet().valid){
@@ -20,6 +35,21 @@ SP.app.controller('QueueCtrl', ['$scope', "$http",
         $scope.error = validateTweet().error
       }
     }
+
+    $scope.deleteTweet = function(id){
+      $.ajax({ url: '/tweets/'+id+'.json',
+        type: 'DELETE',
+        beforeSend: $.rails.CSRFProtection,
+        headers: {
+          'X-CSRF-Token': '<%= form_authenticity_token.to_s %>'
+        },
+        data: id,
+        success: function(respose) {
+          getQueue()
+        }
+      });
+    }
+    
 
     $scope.colorizePanel = function(){
       if(validateTweet().valid){
@@ -44,24 +74,12 @@ SP.app.controller('QueueCtrl', ['$scope', "$http",
         $scope.tweet = {}
         $scope.tweet.value = ""
         $scope.sent = true
+        getQueue()
+
       }
     });
     }
 
-    $scope.getQueue = function(){
-      $.ajax({ 
-        url: '/tweets.json',
-        type: 'get',
-        success: function(response){
-          console.log(response)
-        }
-      })
-    }
-    
-
-
-    //move this to a service
-    //add date validation too (can't be in the past)
     var validateTweet = function(){
       return_object = {}
       if ($scope.tweet.value.length <= 0){

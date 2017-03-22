@@ -1,11 +1,13 @@
-# SongTweeter
+# TwitterQueue
 
-The backing behind a twitter bot that tweets out music links in a predetermined way. 
+This is a small single page app that allows me to queue up tweets so I can keep my twitter updated when I'm traveling 
 
 This is built on Rails, a Ruby based MVC framework, which was selected because of its robustnes and modularity, as well as the fact that it has a strong ORM that makes working with PostgresSQL a breeze, as well as allowing a no-hassle roll out of a time tested authorization system, so that expanding the app beyond a simple personal app become much easier. 
 
-This app allows me to queue up tweets to be tweeted on a twitter account of my choice. While this functionality exists in the wild, the ability to do it the way I would like is a paid service, and has some undesriable limitations. 
+The delayed-job gem was used to allow the user to delay the tweets. 
 
-It also gathers usage statistics, which it keeps in a PostgreSQL Database so I can see how often i'm tweeting (and be reminded when I haven't sent out a tweet in a while). (I have provided a seed file so that sample data may be populated for a better visualization when using localy.)
+This app allows me to queue up tweets to be tweeted on a twitter account of my choice. While this functionality exists in the wild, the ability to do it the way I would like is a paid service, and has some undesriable limitations. As of right now I'm running this locally on a server for home use. 
 
-It is deployed to heroku, and uses AngularJS to serve as a single page app once the author is logged in. This allows extensibility as we develop more robust user statistics. 
+Each tweet, along with when it was tweeted is storedin a PostgreSQL Database so I can see how often i'm tweeting (and be reminded when I haven't sent out a tweet in a while). 
+
+AngularJS is used for the front end, serving as a single page app. This allows extensibility as we develop more robust user statistics, and gives a more seamless user experinece
