@@ -1,6 +1,4 @@
 class TweetsController < ApplicationController
-
-  def show
-    Tweet.send_tweet
+  def index
   end
 end

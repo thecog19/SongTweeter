@@ -18,14 +18,9 @@ gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
 gem 'figaro', '~> 1.1'
-gem 'httparty', '~> 0.14'
-gem 'angularjs-rails', '~> 1.6'
 gem "twitter"
 
-# See https://github.com/rails/execjs#readme for more supported runtimes
-# gem 'therubyracer', platforms: :ruby
-
-# Use jquery as the JavaScript library
+gem 'bootstrap-sass', '~> 3.3.6'
 gem 'jquery-rails'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'
@@ -39,9 +34,12 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 source 'https://rails-assets.org' do
-  gem 'rails-assets-ui-router', '~> 0.4'
-  gem 'rails-assets-lodash', '~> 4.17'
-  gem 'rails-assets-restangular', '~> 1.6'
+  gem 'rails-assets-bootstrap'
+  gem 'rails-assets-angular'
+  gem 'rails-assets-ui-router'
+  gem 'rails-assets-lodash'
+  gem 'rails-assets-restangular'
+  gem "rails-assets-angular-devise"
 end
 
 group :development, :test do
