@@ -20,6 +20,7 @@ gem 'coffee-rails', '~> 4.2'
 gem 'figaro', '~> 1.1'
 gem 'httparty', '~> 0.14'
 gem 'angularjs-rails', '~> 1.6'
+gem "twitter"
 
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
